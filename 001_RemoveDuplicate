@@ -1,0 +1,96 @@
+# Python: First Solution
+class Solution:
+    def removeDuplicates(self, nums):
+        if not nums:
+            return 0
+
+        expectedNums = []
+
+        for i, num in enumerate(nums):
+            if i == 0 or num != nums[i - 1]:
+                expectedNums.append(num)
+
+        for i in range(len(expectedNums)):
+            nums[i] = expectedNums[i]
+
+        return len(expectedNums)
+
+# Python: Second Solution
+
+class Solution(object):
+    def removeDuplicates(self, nums):
+        if not nums:
+            return 0
+
+        i = 0
+        for j in range(1, len(nums)):
+            if nums[j] != nums[i]:
+                i += 1
+                nums[i] = nums[j]
+
+        return i + 1
+
+# Typescript
+function removeDuplicates(nums: number[]): number {
+    if (nums.length === 0) {
+        return 0;
+    }
+
+    let k = 1;
+
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] !== nums[i - 1]) {
+            nums[k] = nums[i];
+            k++;
+        }
+    }
+
+    return k;
+}
+
+#C++
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        if (nums.empty()) return 0;
+
+        int k = 1;
+
+        for (int i = 1; i < nums.size(); i++)
+            if (nums[i] != nums[i - 1]) {
+                nums[k] = nums[i];
+                k++;
+            }
+        }
+
+        return k;
+    }
+};
+
+#Python
+
+class Solution:
+    def removeElement(self, nums, val):
+        k = 0
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[k] = nums[i]
+                k += 1
+        return k
+
+#Typescript
+
+function removeElement(nums: number[], val: number): number {
+    let k = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== val) {
+            nums[k] = nums[i];
+            k++;
+        }
+    }
+    return k;
+}
+
