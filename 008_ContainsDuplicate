@@ -1,0 +1,26 @@
+// C++
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size() - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+// Python
+
+class Solution(object):
+    def containsDuplicate(self, nums):
+        return len(nums) != len(set(nums))
+
+// Typescript
+
+function containsDuplicate(nums: number[]): boolean {
+  return nums.length !== new Set(nums).size;
+}
+

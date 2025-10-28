@@ -1,0 +1,31 @@
+// C++ : Using two-pointer method
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int right = s.size() -1;
+
+        while (right >=0 && s[right]==' ') {
+            right--;
+        }
+
+        int left = right;
+        while ( left >=0 && s[left] !=' ') {
+            left--;
+        }
+        return right-left;
+    }
+};
+
+
+// Python: using lstrip:removes spaces on the left/ and rstrip:remove spaces on the right/ strip: removes spaces both ends
+class Solution(object):
+    def lengthOfLastWord(self, s):
+        s = s.strip()
+        words = s.split()
+        return len(words[-1])
+
+// Typescript
+
+
+
+

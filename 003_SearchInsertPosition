@@ -23,5 +23,20 @@ class Solution:
         return left
 
 
-
+// C++
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int i =0;
+        bool found = false;
+        int index = 0;
+       while (i < (int)nums.size() && !found) {
+       if (nums[i] == target) { found = true; index = i; }
+    else if (nums[i] > target) { index = i; break; }
+    ++i;
+   }
+if (!found && i == (int)nums.size()) index = i;
+return index;
+    }
+};
 

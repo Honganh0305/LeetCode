@@ -1,0 +1,42 @@
+Way to merge sorted array
+1. Two-pointer method ( from the end)
+2. Two -pointer method ( from the beginning, aware of overwriting)
+3.Using standard method ( merge() for C++, Concatenate + sort for Python,
+
+When to use Two Pointers:
+- Sorted input: If the array or a list is already sorted, eg: find two numbers in a sorted array that add up to a target
+- Pairs: When+ the problem asks about two elements, sub-arrays, or ranges instead of work in with single elements. eg: longest substring without repeating characters
+- Sliding Window problems: eg: find smallest subarray with sum >=K, move all zeros to end while maintaining order
+
+The idea of this technique is to begin with two corners of the given array. We use two index variables left and right
+Initialize left = 0, right = n-1
+Run a loop while left<right,
+1. Compute current sum , sum = arr[left] + arr[right]
+2. If sum equals to target --> found the pair
+3. If sums > target -> move the right pointer to the left to decrease the sum
+3. If sums < target --> move the left pointer to the right
+
+C++
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int i = m-1;
+        int j = n-1;
+        int k = m+n-1;
+
+        while (j>=0) {
+            if (i>=0 && nums1[i] > nums2[j]) {
+                nums1[k--] = nums1[i--];
+            } else {
+                nums1[k--] = nums2[j--];
+            }
+        }
+    }
+};
+
+Python
+class Solution(object):
+    def Remove(self, nums)
+
+
+

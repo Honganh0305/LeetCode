@@ -1,0 +1,48 @@
+#C++
+Explain: a^a =0 | a ^0 = a
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int result = 0;
+        for (int num:nums) {
+            result^=num;
+        }
+            return result;
+    }
+};
+
+#Python1
+class Solution(object):
+    def singleNumber(self, nums):
+        return 2*sum(set(nums)) - sum(nums)
+
+#Python2
+class Solution(object):
+    def singleNumber(self, nums):
+        nums.sort()
+
+        i = 0
+        while i < len(nums) - 1:
+            if nums[i] == nums[i + 1]:
+                i += 2
+            else:
+                return nums[i]
+        return nums[-1]
+
+#Typescript
+function singleNumber(nums: number[]): number {
+     const count: { [key: number]: number } = {};
+
+  for (const num of nums) {
+    count[num] = (count[num] || 0) + 1;
+  }
+
+  for (const num in count) {
+    if (count[num] === 1) {
+      return Number(num);
+    }
+  }
+
+  return -1;
+}
+
